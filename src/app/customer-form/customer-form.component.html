@@ -1,0 +1,52 @@
+<div>
+    <h2>Customer Information</h2>
+    <form (ngSubmit)="submitForm()">
+      <div>
+        <label for="name">Customer Name:</label>
+        <input type="text" id="name" [(ngModel)]="customerName" name="customerName" required>
+      </div>
+      <div>
+        <label for="address">Customer Address:</label>
+        <input type="text" id="address" [(ngModel)]="customerAddress" name="customerAddress" required>
+      </div>
+      <div>
+        <label for="phone">Customer Phone Number:</label>
+        <input type="text" id="phone" [(ngModel)]="customerPhone" name="customerPhone" required>
+      </div>
+      <div>
+        <label for="bikeNumber">Customer Bike Number:</label>
+        <input type="text" id="bikeNumber" [(ngModel)]="bikeNumber" name="bikeNumber" required>
+      </div>
+      <div>
+        <label for="serviceDate">Service Date:</label>
+        <input type="date" id="serviceDate" [(ngModel)]="serviceDate" name="serviceDate" required>
+    </div>
+      <button type="submit" [disabled]="!isFormValid()">Submit</button>
+    </form>
+  </div>
+  
+  <hr>
+
+  <div *ngIf="customerInfo.length > 0">
+    <h2>All Customers Details </h2>
+    <table>
+      <tr>
+        <th>Customer Name</th>
+        <th>Customer Address</th>
+        <th>Customer Phone Number</th>
+        <th>Customer Bike Number</th>
+        <th>Service Date</th>
+        <th>Entered Date</th>
+      </tr>
+      <tr *ngFor="let customer of customerInfo">
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.address }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.bikeNumber }}</td>
+        <td>{{ customer.serviceDate }}</td>
+        <td>{{ customer.date }}</td>
+      </tr>
+    </table>
+  </div>
+  
+  
